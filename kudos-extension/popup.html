@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kudos Manager</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kudos Manager</h1>
+      <a href="about.html" target="_blank" class="icon-btn" title="Sobre">⚙️</a>
+    </header>
+
+    <div id="newKudoSection" class="section hidden">
+      <h2>Novo Kudo</h2>
+      <div id="selectedText" class="selected-text"></div>
+      <div id="pageInfo" class="page-info"></div>
+
+      <div class="form-group">
+        <label for="recipient">Destinatário:</label>
+        <select id="recipient">
+          <option value="">Selecione...</option>
+        </select>
+        <input type="text" id="customRecipient" placeholder="Ou digite o nome" class="hidden">
+        <label class="checkbox-label hidden" id="addToTeamLabel">
+          <input type="checkbox" id="addToTeam"> Adicionar à equipe
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Mensagem (opcional):</label>
+        <textarea id="message" rows="3" placeholder="Adicione uma mensagem..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Categoria:</label>
+        <select id="category">
+          <option value="ajuda">Ajuda</option>
+          <option value="colaboracao">Colaboração</option>
+          <option value="inovacao">Inovação</option>
+          <option value="qualidade">Qualidade</option>
+          <option value="outro">Outro</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button id="saveKudo" class="btn btn-primary">Salvar Kudo</button>
+        <button id="cancelKudo" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </div>
+
+    <div id="mainSection">
+      <div class="tabs">
+        <button class="tab active" data-tab="kudos">Kudos</button>
+        <button class="tab" data-tab="team">Equipe</button>
+      </div>
+
+      <div id="kudosTab" class="tab-content active">
+        <div class="filters-bar">
+          <div class="filter-group">
+            <label>De:</label>
+            <input type="date" id="dateFrom">
+          </div>
+          <div class="filter-group">
+            <label>Até:</label>
+            <input type="date" id="dateTo">
+          </div>
+          <button id="applyFilter" class="btn btn-small">Filtrar</button>
+          <button id="clearFilter" class="btn btn-small btn-secondary">Limpar</button>
+        </div>
+        <div class="actions-bar">
+          <button id="exportBtn" class="btn btn-small">Exportar Filtrados</button>
+          <button id="exportAllBtn" class="btn btn-small">Exportar Todos</button>
+          <button id="importBtn" class="btn btn-small">Importar JSON</button>
+          <input type="file" id="importFile" accept=".json" class="hidden">
+          <button id="clearKudosBtn" class="btn btn-small btn-danger">Limpar Kudos</button>
+        </div>
+        <div id="kudosList" class="kudos-list">
+          <p class="empty-state">Nenhum kudo ainda. Selecione texto em qualquer página e clique com botão direito para criar um kudo!</p>
+        </div>
+      </div>
+
+      <div id="teamTab" class="tab-content">
+        <div class="add-member">
+          <input type="text" id="newMemberName" placeholder="Nome do membro">
+          <button id="addMemberBtn" class="btn btn-small btn-primary">Adicionar</button>
+        </div>
+        <div class="actions-bar">
+          <button id="exportTeamBtn" class="btn btn-small">Exportar Equipe</button>
+          <button id="importTeamBtn" class="btn btn-small">Importar Equipe</button>
+          <input type="file" id="importTeamFile" accept=".json" class="hidden">
+        </div>
+        <div id="teamList" class="team-list">
+          <p class="empty-state">Adicione membros da equipe para facilitar o envio de kudos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Editar Data do Kudo</h3>
+      <div class="form-group">
+        <label for="editDate">Nova data:</label>
+        <input type="datetime-local" id="editDate">
+      </div>
+      <div class="modal-buttons">
+        <button id="saveEditBtn" class="btn btn-primary btn-small">Salvar</button>
+        <button id="cancelEditBtn" class="btn btn-secondary btn-small">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

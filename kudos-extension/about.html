@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre - Kudos Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #f5f5f5;
+    }
+    .about-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.2);
+      padding: 4px;
+      border-radius: 8px;
+    }
+    .lang-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .lang-btn.active {
+      background: rgba(255,255,255,0.3);
+    }
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .about-header {
+      text-align: center;
+      padding: 32px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .about-header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .about-header p {
+      opacity: 0.9;
+      font-size: 14px;
+    }
+    .about-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .about-card h2 {
+      font-size: 16px;
+      color: #667eea;
+      margin-bottom: 12px;
+    }
+    .about-card p, .about-card li {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
+    .about-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .about-card li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .about-card li:last-child {
+      border-bottom: none;
+    }
+    .about-card li::before {
+      content: "✓";
+      color: #27ae60;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    .donate-section {
+      text-align: center;
+      padding: 32px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border-radius: 12px;
+    }
+    .donate-section h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+    .donate-section p {
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+    .donate-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+    .donate-btn {
+      display: inline-block;
+      background: white;
+      color: #f5576c;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+      min-width: 200px;
+    }
+    .donate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .donate-label {
+      font-size: 12px;
+      opacity: 0.8;
+      margin-top: -4px;
+    }
+    .version {
+      text-align: center;
+      color: #999;
+      font-size: 12px;
+      margin-top: 24px;
+    }
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="pt"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en .donate-methods [data-lang="pt"] { display: none; }
+    body.en .donate-methods [data-lang="en"] { display: inline-block; }
+    body.en .lang-toggle .lang-btn[data-lang="en"] { background: rgba(255,255,255,0.3); }
+    body.en .lang-toggle .lang-btn[data-lang="pt"] { background: transparent; }
+    body:not(.en) .lang-toggle .lang-btn[data-lang="pt"] { background: rgba(255,255,255,0.3); }
+    body:not(.en) .lang-toggle .lang-btn[data-lang="en"] { background: transparent; }
+  </style>
+</head>
+<body>
+  <div class="about-container">
+    <div class="about-header">
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <h1>Kudos Manager</h1>
+      <p data-lang="pt">Facilitando reconhecimento entre equipes</p>
+      <p data-lang="en">Making team recognition easy</p>
+    </div>
+
+    <div class="about-card">
+      <h2 data-lang="pt">Privacidade</h2>
+      <h2 data-lang="en">Privacy</h2>
+      <p data-lang="pt">A extensão <strong>salva todos os dados localmente</strong> no seu navegador. Nenhum dado é enviado para servidores externos.</p>
+      <p data-lang="en">The extension <strong>saves all data locally</strong> in your browser. No data is sent to external servers.</p>
+    </div>
+
+    <div class="about-card">
+      <h2 data-lang="pt">Como os dados são armazenados</h2>
+      <h2 data-lang="en">How data is stored</h2>
+      <ul>
+        <li data-lang="pt">Utilizamos a API <code>chrome.storage.local</code> do Chrome</li>
+        <li data-lang="en">We use Chrome's <code>chrome.storage.local</code> API</li>
+        <li data-lang="pt">Dados ficam apenas no seu computador</li>
+        <li data-lang="en">Data stays only on your computer</li>
+        <li data-lang="pt">Não coletamos informações pessoais</li>
+        <li data-lang="en">We don't collect personal information</li>
+        <li data-lang="pt">Apenas primeiro nome dos membros é salvo</li>
+        <li data-lang="en">Only first names of members are saved</li>
+        <li data-lang="pt">Você pode exportar e apagar seus dados a qualquer momento</li>
+        <li data-lang="en">You can export and delete your data at any time</li>
+      </ul>
+    </div>
+
+    <div class="about-card">
+      <h2 data-lang="pt">Seus dados</h2>
+      <h2 data-lang="en">Your data</h2>
+      <p data-lang="pt">Você tem total controle sobre seus dados:</p>
+      <p data-lang="en">You have full control over your data:</p>
+      <ul>
+        <li data-lang="pt">Exportar kudos e equipe em formato JSON</li>
+        <li data-lang="en">Export kudos and team in JSON format</li>
+        <li data-lang="pt">Importar dados de outros dispositivos</li>
+        <li data-lang="en">Import data from other devices</li>
+        <li data-lang="pt">Limpar todos os kudos com backup automático</li>
+        <li data-lang="en">Clear all kudos with automatic backup</li>
+        <li data-lang="pt">Remover membros individualmente</li>
+        <li data-lang="en">Remove members individually</li>
+      </ul>
+    </div>
+
+    <div class="donate-section">
+      <h2 data-lang="pt">Apoie o Projeto</h2>
+      <h2 data-lang="en">Support the Project</h2>
+      <p data-lang="pt">Gostou da extensão? Considere fazer uma doação!</p>
+      <p data-lang="en">Like the extension? Consider making a donation!</p>
+      <div class="donate-methods">
+        <a href="mailto:haas.rica@gmail.com" class="donate-btn" data-lang="pt">PIX / PayPal</a>
+        <a href="mailto:haas.rica@gmail.com" class="donate-btn" data-lang="en">PIX / PayPal</a>
+        <p class="donate-label">haas.rica@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="about-card" style="text-align: center;">
+      <a href="privacy.html" target="_blank" style="color: #667eea; text-decoration: none; font-weight: 500;">
+        <span data-lang="pt">📜 Política de Privacidade</span>
+        <span data-lang="en">📜 Privacy Policy</span>
+      </a>
+    </div>
+
+    <p class="version">Versão 1.0.0 | Version 1.0.0</p>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      if (lang === 'en') {
+        document.body.classList.add('en');
+        document.documentElement.lang = 'en';
+      } else {
+        document.body.classList.remove('en');
+        document.documentElement.lang = 'pt-BR';
+      }
+      localStorage.setItem('kudos-lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('kudos-lang') || 'pt';
+    setLang(savedLang);
+  </script>
+</body>
+</html>

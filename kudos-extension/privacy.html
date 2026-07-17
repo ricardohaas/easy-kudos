@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade - Kudos Manager</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #f5f5f5;
+    }
+    .policy-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .policy-header {
+      text-align: center;
+      padding: 32px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .lang-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.2);
+      padding: 4px;
+      border-radius: 8px;
+    }
+    .lang-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .lang-btn.active {
+      background: rgba(255,255,255,0.3);
+    }
+    .lang-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+    .policy-header h1 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .policy-header p {
+      opacity: 0.9;
+      font-size: 14px;
+    }
+    .policy-card {
+      background: white;
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .policy-card h2 {
+      font-size: 16px;
+      color: #667eea;
+      margin-bottom: 12px;
+    }
+    .policy-card p, .policy-card li {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+    }
+    .policy-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .policy-card li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .policy-card li:last-child {
+      border-bottom: none;
+    }
+    .policy-card li::before {
+      content: "•";
+      color: #667eea;
+      margin-right: 8px;
+      font-weight: bold;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 24px;
+    }
+    .back-link a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+    [data-lang="en"] { display: none; }
+    body.en [data-lang="pt"] { display: none; }
+    body.en [data-lang="en"] { display: block; }
+    body.en .lang-toggle .lang-btn[data-lang="en"] { background: rgba(255,255,255,0.3); }
+    body.en .lang-toggle .lang-btn[data-lang="pt"] { background: transparent; }
+    body:not(.en) .lang-toggle .lang-btn[data-lang="pt"] { background: rgba(255,255,255,0.3); }
+    body:not(.en) .lang-toggle .lang-btn[data-lang="en"] { background: transparent; }
+  </style>
+</head>
+<body>
+  <div class="policy-container">
+    <div class="policy-header">
+      <div class="lang-toggle">
+        <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+      <h1 data-lang="pt">Política de Privacidade</h1>
+      <h1 data-lang="en">Privacy Policy</h1>
+      <p>Kudos Manager</p>
+    </div>
+
+    <div class="policy-card">
+      <h2 data-lang="pt">1. Informações Coletadas</h2>
+      <h2 data-lang="en">1. Information Collected</h2>
+      <p data-lang="pt">A extensão Kudos Manager coleta apenas as seguintes informações:</p>
+      <p data-lang="en">The Kudos Manager extension collects only the following information:</p>
+      <ul>
+        <li data-lang="pt">Nomes dos membros da equipe (apenas primeiro nome)</li>
+        <li data-lang="en">Team member names (first name only)</li>
+        <li data-lang="pt">Textos selecionados para criar kudos</li>
+        <li data-lang="en">Selected texts to create kudos</li>
+        <li data-lang="pt">URLs e títulos das páginas onde os kudos foram criados</li>
+        <li data-lang="en">URLs and page titles where kudos were created</li>
+        <li data-lang="pt">Mensagens e categorias dos kudos</li>
+        <li data-lang="en">Kudo messages and categories</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <h2 data-lang="pt">2. Armazenamento dos Dados</h2>
+      <h2 data-lang="en">2. Data Storage</h2>
+      <p data-lang="pt">Todos os dados são armazenados <strong>localmente</strong> no seu navegador utilizando a API <code>chrome.storage.local</code>. Nenhum dado é enviado para servidores externos.</p>
+      <p data-lang="en">All data is stored <strong>locally</strong> in your browser using the <code>chrome.storage.local</code> API. No data is sent to external servers.</p>
+    </div>
+
+    <div class="policy-card">
+      <h2 data-lang="pt">3. Compartilhamento de Dados</h2>
+      <h2 data-lang="en">3. Data Sharing</h2>
+      <p data-lang="pt">Não compartilhamos, vendemos ou enviamos seus dados para terceiros. Os dados permanecem exclusivamente no seu dispositivo.</p>
+      <p data-lang="en">We do not share, sell, or transmit your data to third parties. Data remains exclusively on your device.</p>
+    </div>
+
+    <div class="policy-card">
+      <h2 data-lang="pt">4. Segurança</h2>
+      <h2 data-lang="en">4. Security</h2>
+      <p data-lang="pt">Os dados são protegidos pelo navegador Chrome e ficam acessíveis apenas para esta extensão. Você pode apagar seus dados a qualquer momento através da função "Limpar Kudos".</p>
+      <p data-lang="en">Data is protected by the Chrome browser and is accessible only to this extension. You can delete your data at any time using the "Clear Kudos" function.</p>
+    </div>
+
+    <div class="policy-card">
+      <h2 data-lang="pt">5. Seus Direitos</h2>
+      <h2 data-lang="en">5. Your Rights</h2>
+      <p data-lang="pt">Você tem total controle sobre seus dados:</p>
+      <p data-lang="en">You have full control over your data:</p>
+      <ul>
+        <li data-lang="pt">Exportar todos os dados em formato JSON</li>
+        <li data-lang="en">Export all data in JSON format</li>
+        <li data-lang="pt">Importar dados de outros dispositivos</li>
+        <li data-lang="en">Import data from other devices</li>
+        <li data-lang="pt">Apagar todos os dados a qualquer momento</li>
+        <li data-lang="en">Delete all data at any time</li>
+        <li data-lang="pt">Remover membros individualmente</li>
+        <li data-lang="en">Remove members individually</li>
+      </ul>
+    </div>
+
+    <div class="policy-card">
+      <h2 data-lang="pt">6. Contato</h2>
+      <h2 data-lang="en">6. Contact</h2>
+      <p data-lang="pt">Em caso de dúvidas sobre esta política de privacidade, entre em contato:</p>
+      <p data-lang="en">If you have questions about this privacy policy, please contact:</p>
+      <p><strong>Email: haas.rica@gmail.com</strong></p>
+    </div>
+
+    <div class="policy-card">
+      <p data-lang="pt"><em>Última atualização: Julho de 2026</em></p>
+      <p data-lang="en"><em>Last updated: July 2026</em></p>
+    </div>
+
+    <div class="back-link">
+      <a href="about.html" data-lang="pt">← Voltar para Sobre</a>
+      <a href="about.html" data-lang="en">← Back to About</a>
+    </div>
+  </div>
+
+  <script>
+    function setLang(lang) {
+      if (lang === 'en') {
+        document.body.classList.add('en');
+        document.documentElement.lang = 'en';
+      } else {
+        document.body.classList.remove('en');
+        document.documentElement.lang = 'pt-BR';
+      }
+      localStorage.setItem('kudos-lang', lang);
+    }
+
+    const savedLang = localStorage.getItem('kudos-lang') || 'pt';
+    setLang(savedLang);
+  </script>
+</body>
+</html>
